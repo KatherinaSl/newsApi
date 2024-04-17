@@ -1,6 +1,6 @@
 export interface IStatus {
     status: string;
-    sources: ISource[]
+    sources: ISource[];
 }
 
 export interface ISource {
@@ -11,4 +11,15 @@ export interface ISource {
     category: string;
     language: string;
     country: string;
+}
+
+export interface IArticle {
+    source: ISource;
+    author: string;
+    title: string;
+    description: string;
+    url: string;
+    urlToImage: string;
+    publishedAt: string;
+    content: string;
 }

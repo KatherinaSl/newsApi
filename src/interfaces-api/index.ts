@@ -13,7 +13,7 @@ export interface ISource {
     country: string;
 }
 
-export interface IArticle {
+export interface IOneArticle {
     source: ISource;
     author: string;
     title: string;
@@ -22,4 +22,15 @@ export interface IArticle {
     urlToImage: string;
     publishedAt: string;
     content: string;
+}
+
+export interface INewsResponse {
+    status: string;
+    totalResults: number;
+    articles: IOneArticle[];
+}
+
+export interface ISourcesResponse {
+    status: string;
+    sources: ISource[];
 }

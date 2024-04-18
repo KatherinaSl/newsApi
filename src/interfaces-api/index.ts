@@ -24,13 +24,44 @@ export interface IOneArticle {
     content: string;
 }
 
-export interface INewsResponse {
-    status: string;
+export interface INewsResponse extends ISuccessResponse{
     totalResults: number;
     articles: IOneArticle[];
 }
 
-export interface ISourcesResponse {
-    status: string;
+export interface ISourcesResponse  extends ISuccessResponse{
     sources: ISource[];
+}
+
+export interface ISuccessResponse {
+    status: 'ok'
+}
+
+export interface IErrorResponse {
+    status: 'error';
+    code: string;
+    message: string;
+}
+
+export interface IRequest {
+    endpoint: string;
+    options: IUrlOptions;
+}
+
+export interface IUrlOptions {
+    [index: string]: string | undefined;
+    apiKey?: string;
+    category?: string;
+    language?: string;
+    country?: string;
+    sources?: string;
+    q?: string;
+    pageSize?: string;
+    page?: string;
+    searchIn?: string;
+    domains?: string;
+    excludeDomains?: string;
+    from?: string;
+    to?: string;
+    sortBy?: string;
 }

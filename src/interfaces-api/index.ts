@@ -1,8 +1,3 @@
-export interface IStatus {
-    status: string;
-    sources: ISource[];
-}
-
 export interface ISource {
     id: string;
     name: string;
@@ -13,7 +8,7 @@ export interface ISource {
     country: string;
 }
 
-export interface IOneArticle {
+export interface IArticle {
     source: ISource;
     author: string;
     title: string;
@@ -26,7 +21,7 @@ export interface IOneArticle {
 
 export interface INewsResponse extends ISuccessResponse {
     totalResults: number;
-    articles: IOneArticle[];
+    articles: IArticle[];
 }
 
 export interface ISourcesResponse extends ISuccessResponse {
@@ -66,4 +61,4 @@ export interface IUrlOptions {
     sortBy?: string;
 }
 
-export type SuccessCallBack = (data?: ISuccessResponse) => void;
+export type SuccessCallBack<T extends ISuccessResponse> = (data?: T) => void;

@@ -1,8 +1,8 @@
-import { SuccessCallBack } from '../../interfaces-api/index';
+import { INewsResponse, ISourcesResponse, SuccessCallBack } from '../../interfaces-api/index';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    public getSources(callback: SuccessCallBack) {
+    public getSources(callback: SuccessCallBack<ISourcesResponse>) {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -11,7 +11,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: SuccessCallBack) {
+    getNews(e: Event, callback: SuccessCallBack<INewsResponse>) {
         let target = e.target as HTMLElement;
         const newsContainer = e.currentTarget as HTMLElement;
 

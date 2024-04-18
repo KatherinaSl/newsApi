@@ -1,4 +1,4 @@
-import { IUrlOptions, IRequest, SuccessCallBack } from '../../interfaces-api/index';
+import { IUrlOptions, IRequest, SuccessCallBack, ISuccessResponse } from '../../interfaces-api/index';
 
 enum Method {
     GET = 'GET',
@@ -45,7 +45,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    public load(method: string, endpoint: string, callback: SuccessCallBack, options: IUrlOptions) {
+    public load<T extends ISuccessResponse>(
+        method: string,
+        endpoint: string,
+        callback: SuccessCallBack<T>,
+        options: IUrlOptions
+    ) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res: Response) => res.json())

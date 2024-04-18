@@ -24,17 +24,17 @@ export interface IOneArticle {
     content: string;
 }
 
-export interface INewsResponse extends ISuccessResponse{
+export interface INewsResponse extends ISuccessResponse {
     totalResults: number;
     articles: IOneArticle[];
 }
 
-export interface ISourcesResponse  extends ISuccessResponse{
+export interface ISourcesResponse extends ISuccessResponse {
     sources: ISource[];
 }
 
 export interface ISuccessResponse {
-    status: 'ok'
+    status: 'ok';
 }
 
 export interface IErrorResponse {
@@ -45,7 +45,7 @@ export interface IErrorResponse {
 
 export interface IRequest {
     endpoint: string;
-    options: IUrlOptions;
+    options?: IUrlOptions;
 }
 
 export interface IUrlOptions {
@@ -65,3 +65,5 @@ export interface IUrlOptions {
     to?: string;
     sortBy?: string;
 }
+
+export type SuccessCallBack = (data?: ISuccessResponse) => void;

@@ -9,8 +9,8 @@ enum Method {
 
 class Loader {
     public baseLink: string;
-    public options: IUrlOptions;
-    constructor(baseLink: string, options: IUrlOptions) {
+    public options: Partial<IUrlOptions>;
+    constructor(baseLink: string, options: Partial<IUrlOptions>) {
         this.baseLink = baseLink;
         this.options = options;
     }
@@ -34,7 +34,7 @@ class Loader {
         return res;
     }
 
-    public makeUrl(options: IUrlOptions, endpoint: string): string {
+    public makeUrl(options: Partial<IUrlOptions>, endpoint: string): string {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -49,7 +49,7 @@ class Loader {
         method: string,
         endpoint: string,
         callback: SuccessCallBack<T>,
-        options: IUrlOptions
+        options: Partial<IUrlOptions>
     ) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)

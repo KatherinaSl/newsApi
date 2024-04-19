@@ -9,7 +9,7 @@ export interface ISource {
 }
 
 export interface IArticle {
-    source: ISource;
+    source: Readonly<ISource>;
     author: string;
     title: string;
     description: string;
@@ -21,11 +21,11 @@ export interface IArticle {
 
 export interface INewsResponse extends ISuccessResponse {
     totalResults: number;
-    articles: IArticle[];
+    articles: Readonly<IArticle>[];
 }
 
 export interface ISourcesResponse extends ISuccessResponse {
-    sources: ISource[];
+    sources: Readonly<ISource>[];
 }
 
 export interface ISuccessResponse {
@@ -40,25 +40,25 @@ export interface IErrorResponse {
 
 export interface IRequest {
     endpoint: string;
-    options?: IUrlOptions;
+    options?: Partial<IUrlOptions>;
 }
 
 export interface IUrlOptions {
     [index: string]: string | undefined;
-    apiKey?: string;
-    category?: string;
-    language?: string;
-    country?: string;
-    sources?: string;
-    q?: string;
-    pageSize?: string;
-    page?: string;
-    searchIn?: string;
-    domains?: string;
-    excludeDomains?: string;
-    from?: string;
-    to?: string;
-    sortBy?: string;
+    apiKey: string;
+    category: string;
+    language: string;
+    country: string;
+    sources: string;
+    q: string;
+    pageSize: string;
+    page: string;
+    searchIn: string;
+    domains: string;
+    excludeDomains: string;
+    from: string;
+    to: string;
+    sortBy: string;
 }
 
 export type SuccessCallBack<T extends ISuccessResponse> = (data?: T) => void;

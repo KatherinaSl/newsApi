@@ -17,8 +17,6 @@
         "no-console": 0,
         "class-methods-use-this": "off",
         "@typescript-eslint/no-explicit-any": "error",
-        // "no-explicit-any": "on",
-        // "@typescript-eslint/no-explicit-any": 2
         "prettier/prettier": [
             "error",
             {

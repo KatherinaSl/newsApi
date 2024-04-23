@@ -1,0 +1,58 @@
+.languages {
+    display: inline-block;
+    border-radius: 25px;
+    padding: 10px 30px;
+}
+
+.languages div {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    color: #fff;
+    width: 200px;
+    padding: 5px;
+    font-size: 18px;
+    /* border: 1px solid #3fcc59; */
+}
+
+.languages div:hover {
+    cursor: pointer;
+}
+
+.languages img {
+    width: 50px;
+    height: 50px;
+}
+
+.languages .listOfLanguages {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.languages .dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.languages p {
+    margin: 18px 0;
+}
+
+.languages li {
+    padding: 10px;
+    float: none;
+    display: list-item;
+    position: relative;
+    cursor: pointer;
+}
+
+.languages li:hover {
+    border-color: #3fcc59;
+    color: #69db7e;
+}

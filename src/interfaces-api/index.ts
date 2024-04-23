@@ -62,3 +62,22 @@ export interface IUrlOptions {
 }
 
 export type SuccessCallBack<T extends ISuccessResponse> = (data?: T) => void;
+
+export const ALL_LANGS: LangMapping = {
+    ar: 'Arabic',
+    de: 'German',
+    en: 'English',
+    es: 'Spanish',
+    fr: 'French',
+    he: 'Hebrew',
+    it: 'Italian',
+    nl: 'Dutch',
+    no: 'Norwegian',
+    pt: 'Portuguese',
+    ru: 'Russian',
+    sv: 'Swedish',
+    ud: 'Turkish-German',
+    zh: 'Chinese',
+};
+
+export type LangMapping = Record<string, string>;

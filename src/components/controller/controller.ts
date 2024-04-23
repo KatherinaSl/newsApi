@@ -2,16 +2,17 @@ import { INewsResponse, ISourcesResponse, SuccessCallBack } from '../../interfac
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    public getSources(callback: SuccessCallBack<ISourcesResponse>) {
+    public getSources(lang: string, callback: SuccessCallBack<ISourcesResponse>) {
         super.getResp(
             {
                 endpoint: 'sources',
+                options: { language: lang },
             },
             callback
         );
     }
 
-    getNews(e: Event, callback: SuccessCallBack<INewsResponse>) {
+    public getNews(e: Event, callback: SuccessCallBack<INewsResponse>) {
         let target = e.target as HTMLElement;
         const newsContainer = e.currentTarget as HTMLElement;
 
